@@ -4,24 +4,13 @@
     <meta charset="UTF-8">
     <title>Chuyển đổi tiền tệ</title>
     <script>
-        function getOption1(selectObject){
-            var value = selectObject.value;
-        };
-        function getOption2(selectOpject2){
-            var value2 = selectOpject2.value;
-        };
-        function result(){
-            var inputi=document.getElementById("number").value;
-            var i=parseInt(inputi);
-            document.getElementById("demo").innerHTML="<span style='color: blue'>Result: "+i/23000+" VND";
-        };
-        /* if (value==='1' && value2==='a') {
-            document.getElementById('demo').innerHTML = "res";
-        }
-        else {
-            document.getElementById('demo').innerHTML='mcjd';
-        };*/
-
+        function result() {
+            let amount = parseInt(document.getElementById("amount").value);
+            let from = parseInt(document.getElementById("from").value);
+            let to = parseInt(document.getElementById("to").value);
+            let result = amount*from/to;
+            document.getElementById("demo").innerHTML="Result: "+result;
+                }
 
     </script>
 </head>
@@ -34,17 +23,19 @@
         <th>&nbsp;</th>
     </tr>
     <tr>
-        <td><input type="text" id="number"></td>
+        <td><input type="text" id="amount"></td>
         <td align="center">
-            <select onchange="getOption1(this)">
+            <select id="from">
                 <option value="1"> Vietnam</option>
-                <option value="2"> USD</option>
+                <option value="23000"> USD</option>
+                <option value="212">JPY</option>
             </select>
         </td>
         <td align="center">
-            <select onchange="getOption2(this)">
-                <option value="a"> USD</option>
-                <option value="b"> Vietnam</option>
+            <select id="to">
+                <option value="23000"> USD</option>
+                <option value="1"> Vietnam</option>
+                <option value="212">JPY</option>
             </select>
         </td>
         <td><input type="button" value="Convert" onclick="result()"></td>
